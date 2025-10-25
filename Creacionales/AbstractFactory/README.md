@@ -42,9 +42,13 @@ El renderizador se encarga de convertir una plantilla (con variables) en una cad
 1. Identificar los productos a fabricar
 
 Los productos que queremos que nuestras fábricas creen son:
+
 	•	TitleTemplate: plantilla de título.
+
 	•	PageTemplate: plantilla de página.
+
 	•	TemplateRenderer: renderizador.
+
 
 Por lo tanto, creamos una interfaz para cada uno:
 ```bash
@@ -55,7 +59,7 @@ Renderer/
 │   └── TemplateRenderer.php  ← Interfaz
 
 ```
-⸻
+
 
 2. Crear las clases concretas de productos
 
@@ -74,7 +78,7 @@ Template/
 
 Para evitar duplicar lógica que comparten TwigPageTemplate y PHPTemplatePageTemplate, como la propiedad $titleTemplate.
 
-⸻
+
 
 3. Crear las clases de renderizado concretas
 
@@ -85,7 +89,7 @@ Renderer/
 │   └── PHPTemplateRenderer.php     ← Implementa TemplateRenderer
 
 ```
-⸻
+
 
 4. Crear la fábrica abstracta
 
@@ -94,11 +98,14 @@ Creamos una interfaz que defina los métodos para fabricar cada tipo de producto
 TemplateFactory.php   ← Interfaz abstracta
 
 Métodos:
+
 	•	createTitleTemplate(): TitleTemplate
+
 	•	createPageTemplate(TitleTemplate $title): PageTemplate
+
 	•	getRenderer(): TemplateRenderer
 
-⸻
+
 
 5. Crear las fábricas concretas
 
@@ -111,7 +118,7 @@ Factory/
 ```
 Cada una sabe cómo construir títulos, páginas y renderizadores según su motor.
 
-⸻
+
 
 6. Crear la clase cliente (Page)
 
@@ -120,7 +127,7 @@ La clase Page actúa como cliente y utiliza una fábrica para generar los compon
 $page = new Page('Título', 'Contenido');
 
 
-⸻
+
 
 7. Probar la implementación
 
@@ -132,9 +139,9 @@ echo "Testing actual rendering with the PHPTemplate factory:\n";
 echo $page->render(new PHPTemplateFactory());
 
 
-⸻
 
-Conclusión
+
+8. Conclusión
 
 Este enfoque paso a paso te permite:
 
@@ -143,14 +150,8 @@ Este enfoque paso a paso te permite:
 	•	Crear las interfaces necesarias para desacoplar el sistema.
 
 	•	Separar claramente la lógica concreta de cada familia de productos.
-	
+
 	•	Implementar una solución extensible y mantenible gracias al patrón Abstract Factory.
-
-
-Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/php/example#example-1
-
-==================================================
-
 
 
 
@@ -193,9 +194,16 @@ Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/p
 
 
 ### Composer + autoloading PSR-4
+
+El autoloading PSR-4 permite que PHP cargue automáticamente las clases cuando se necesitan, sin tener que escribir manualmente múltiples require_once.
+Esto mejora significativamente la organización, mantenimiento y escalabilidad del proyecto.
+
 1.-Se crea archivo composer.json 
+
 2.-Se ejecuta: composer dump-autoload
+
 3.-Composer crea carpeta vendor 
+
 4.-Se remplasan todos los require_once por :  require_once __DIR__ . '/vendor/autoload.php';
 
 
@@ -204,9 +212,9 @@ Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/p
 
 Tomando como ejemplo la fábrica PHPTemplateFactory, el flujo de ejecución es el siguiente:
 
-⸻
 
-1. Instanciación de Page
+
+#### 1. Instanciación de Page
 
 En index.php se crea una instancia de la clase Page, pasándole como argumentos un título y un contenido:
 
@@ -216,18 +224,18 @@ Esto llama al constructor de la clase Page, almacenando internamente los valores
 	•	$this->title = 'Sample page'
 	•	$this->content = 'This is the body.'
 
-⸻
 
-2. Llamada al método render de Page
+
+#### 2. Llamada al método render de Page
 
 Luego se llama al método render() del objeto $page, pasándole como argumento una instancia de la fábrica concreta PHPTemplateFactory:
 
 echo $page->render(new PHPTemplateFactory());
 
 
-⸻
 
-3. Uso de la fábrica dentro de Page::render()
+
+#### 3. Uso de la fábrica dentro de Page::render()
 
 Dentro del método render() de la clase Page, se reciben los siguientes objetos a través de la fábrica:
 
@@ -246,9 +254,9 @@ $renderer = $factory->getRenderer();
 
 Este método retorna una instancia de PHPTemplateRenderer.
 
-⸻
 
-4. Renderizado del contenido final
+
+#### 4. Renderizado del contenido final
 
 Se llama al método render() del renderer, pasando como parámetros:
 	•	La plantilla HTML obtenida de $pageTemplate->getTemplateString(), que contiene placeholders como {{title}} y {{content}}.
@@ -260,9 +268,9 @@ Se llama al método render() del renderer, pasando como parámetros:
 ]
 
 
-⸻
 
-5. Sustitución de valores en la plantilla
+
+#### 5. Sustitución de valores en la plantilla
 
 Dentro del método render() de PHPTemplateRenderer, se recorren las claves del arreglo asociativo y se sustituyen en el string HTML. Por ejemplo:
 
@@ -270,13 +278,13 @@ $templateString = str_replace('{{title}}', 'Sample page', $templateString);
 $templateString = str_replace('{{content}}', 'This is the body.', $templateString);
 
 
-⸻
 
-6. Retorno del contenido HTML final
+
+#### 6. Retorno del contenido HTML final
 
 El string HTML con los valores reemplazados es retornado desde PHPTemplateRenderer, luego desde Page::render() y finalmente impreso con echo en index.php.
 
-⸻
+#### 7. Diagrama de secuencia.
 
 ![Diagrama Abstract Factory](Diagramas/AbstractFactory.png)
 
@@ -309,3 +317,6 @@ Testing actual rendering with the PHPTemplate factory:
 </div>
 ```
 
+Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/php/example#example-1
+
+==================================================
