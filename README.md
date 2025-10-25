@@ -1,4 +1,4 @@
-# 🧠 Guía de Desarrollo de Patrones
+# 🏭 Guía de Desarrollo de Patrones
 
 Bienvenido a este repositorio personal, creado con el propósito de documentar y organizar de manera clara y accesible los conocimientos adquiridos en el desarrollo de **patrones de diseño**: creacionales, estructurales y de comportamiento. Este espacio está diseñado como una **guía de consulta rápida** y como un **recurso educativo** para afianzar conceptos clave y resolver dudas durante el proceso de desarrollo.
 
