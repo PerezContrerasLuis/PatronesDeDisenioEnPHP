@@ -1,4 +1,4 @@
-# 🧠 Abstract Factory Pattern
+# 🏭 Abstract Factory Pattern
 
 ### ¿Para qué sirve?
 
