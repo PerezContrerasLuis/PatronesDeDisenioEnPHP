@@ -58,7 +58,7 @@ Espero que este repositorio sirva como un punto de referencia **confiable y efic
 Para poder trabajar con estos ejemplos, asegúrate de cumplir con los siguientes requisitos:
 
 ### 🔧 Servidor
-- **Sistema Operativo:** Linux (preferiblemente distribuciones basadas en Ubuntu) o macOS.
+- **Sistema Operativo:** Linux ,macOS, windows
 - **RAM:** 2 GB de RAM como mínimo; 4 GB o más es recomendado.
 - **Disco duro:** SSD para mejorar el rendimiento.
 
@@ -67,21 +67,7 @@ Para poder trabajar con estos ejemplos, asegúrate de cumplir con los siguientes
 
 ### 📦 Extensiones PHP requeridas
 
-- `ext-bcmath`  
-- `ext-ctype`  
-- `ext-curl`  
-- `ext-dom`  
-- `ext-gd`  
-- `ext-iconv`  
-- `ext-intl`  
-- `ext-mbstring`  
-- `ext-openssl`  
-- `ext-pdo_mysql`  
-- `ext-simplexml`  
-- `ext-soap`  
-- `ext-xsl`  
-- `ext-zip`  
-- `ext-sockets` *(para Redis)*  
+- `pendientes`   
 
 ### 🌐 Navegadores compatibles
 

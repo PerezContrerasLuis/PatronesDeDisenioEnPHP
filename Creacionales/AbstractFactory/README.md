@@ -23,13 +23,15 @@ El resultado es un sistema más modular, extensible y fácil de mantener.
 ⸻
 
 ### Guía para implementar el patrón Abstract Factory en PHP (paso a paso)
-
+```bash
 Escenario general
 	1.	Definimos que trabajaremos con dos motores de plantillas: Twig y PHPTemplate.
 	2.	Cada motor debe poder:
 	•	Crear títulos (TitleTemplate)
 	•	Crear páginas (PageTemplate)
 	•	Renderizar HTML (TemplateRenderer)
+
+```
 
 El renderizador se encarga de convertir una plantilla (con variables) en una cadena HTML final.
 
@@ -69,6 +71,7 @@ Template/
 │   └── BasePageTemplate.php            ← Clase abstracta común
 ```
 ¿Por qué se usa BasePageTemplate?
+
 Para evitar duplicar lógica que comparten TwigPageTemplate y PHPTemplatePageTemplate, como la propiedad $titleTemplate.
 
 ⸻
@@ -134,9 +137,13 @@ echo $page->render(new PHPTemplateFactory());
 Conclusión
 
 Este enfoque paso a paso te permite:
+
 	•	Identificar primero los productos a fabricar.
+
 	•	Crear las interfaces necesarias para desacoplar el sistema.
+
 	•	Separar claramente la lógica concreta de cada familia de productos.
+	
 	•	Implementar una solución extensible y mantenible gracias al patrón Abstract Factory.
 
 
