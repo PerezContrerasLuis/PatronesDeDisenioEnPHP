@@ -41,7 +41,7 @@ El renderizador se encarga de convertir una plantilla (con variables) en una cad
 
 ⸻
 
-<h2 style="color:red;">Proceso de codificación</h2>
+## 🟢 Proceso de codificación
 
 1. Identificar los productos a fabricar
 
@@ -230,7 +230,7 @@ echo $page->render(new PHPTemplateFactory());
 
 
 
-<h2 style="color:blue;">EJemplo de ejecución con la familia</h2> PhpTemplateFactory
+## 🔵 EJemplo de ejecución con la familia PhpTemplateFactory
 
 Tomando como ejemplo la fábrica PHPTemplateFactory, el flujo de ejecución es el siguiente:
 
@@ -310,7 +310,7 @@ El string HTML con los valores reemplazados es retornado desde PHPTemplateRender
 
 ![Diagrama Abstract Factory](Diagramas/AbstractFactory.png)
 
-🧪 Resultado esperado
+## 🔴 Resultado esperado
 
 ```bash
 Testing actual rendering with the PHPTemplate factory:
