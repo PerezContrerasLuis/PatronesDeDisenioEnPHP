@@ -41,7 +41,7 @@ El renderizador se encarga de convertir una plantilla (con variables) en una cad
 
 ⸻
 
-### Proceso de codificación
+<h2 style="color:red;">Proceso de codificación</h2>
 
 1. Identificar los productos a fabricar
 
@@ -131,9 +131,56 @@ La clase Page actúa como cliente y utiliza una fábrica para generar los compon
 $page = new Page('Título', 'Contenido');
 
 
+7.- Crear el  Autoloading 
+
+Composer + autoloading PSR-4
+El autoloading PSR-4 permite que PHP cargue automáticamente las clases cuando se necesitan, sin tener que escribir manualmente múltiples require_once en el index.php como se muestra a continuacion.
+
+```php
+/* 
+Interfaces base (siempre primero)
+require_once __DIR__ . '/Factory/TemplateFactory.php';
+require_once __DIR__ . '/Template/TitleTemplate.php';
+require_once __DIR__ . '/Template/PageTemplate.php';
+require_once __DIR__ . '/Render/TemplateRender.php'; // ← corregido
+require_once __DIR__ . '/Factory/TwigTemplateFactory.php';
+
+Clases abstractas
+require_once __DIR__ . '/Template/BasePageTemplate.php';
+
+Implementaciones concretas
+require_once __DIR__ . '/Template/TwingTitleTemplate.php';
+require_once __DIR__ . '/Template/PHPTitleTemplate.php';
+require_once __DIR__ . '/Template/TwingPageTemplate.php';
+require_once __DIR__ . '/Template/PHPPageTemplate.php';
+require_once __DIR__ . '/Render/TwingRender.php'; // ← corregido
+require_once __DIR__ . '/Render/PHPTemplateRenderer.php'; // ← corregido
+
+Fábricas concretas
+require_once __DIR__ . '/Factory/TwigTemplateFactory.php';
+require_once __DIR__ . '/Factory/PHPTemplateFactory.php';
+
+Clases cliente y helpers
+require_once __DIR__ . '/Client/Page.php';
+require_once __DIR__ . '/Engine/Twing.php';
+require_once __DIR__ . '/vendor/autoload.php';
+*/
+
+require_once __DIR__ . '/composer/autoload_real.php';
+
+```  
+Esto mejora significativamente la organización, mantenimiento y escalabilidad del proyecto.
+
+	7.1.-Se crea archivo composer.json 
+
+	7.2.-Se ejecuta: composer dump-autoload
+
+	7.3.-Composer crea carpeta vendor 
+
+	7.4.-Se remplasan todos los require_once por :  require_once __DIR__ . '/vendor/autoload.php';
 
 
-7. Probar la implementación
+8. Probar la implementación
 
 En el archivo index.php, probamos la integración completa:
 
@@ -141,21 +188,6 @@ $page = new Page('Sample page', 'This is the body.');
 
 echo "Testing actual rendering with the PHPTemplate factory:\n";
 echo $page->render(new PHPTemplateFactory());
-
-
-
-
-8. Conclusión
-
-Este enfoque paso a paso te permite:
-
-	•	Identificar primero los productos a fabricar.
-
-	•	Crear las interfaces necesarias para desacoplar el sistema.
-
-	•	Separar claramente la lógica concreta de cada familia de productos.
-
-	•	Implementar una solución extensible y mantenible gracias al patrón Abstract Factory.
 
 
 
@@ -197,22 +229,8 @@ Este enfoque paso a paso te permite:
 ```
 
 
-### Composer + autoloading PSR-4
 
-El autoloading PSR-4 permite que PHP cargue automáticamente las clases cuando se necesitan, sin tener que escribir manualmente múltiples require_once.
-Esto mejora significativamente la organización, mantenimiento y escalabilidad del proyecto.
-
-1.-Se crea archivo composer.json 
-
-2.-Se ejecuta: composer dump-autoload
-
-3.-Composer crea carpeta vendor 
-
-4.-Se remplasan todos los require_once por :  require_once __DIR__ . '/vendor/autoload.php';
-
-
-
-## Proceso de ejecución con la familia PhpTemplateFactory
+<h2 style="color:blue;">EJemplo de ejecución con la familia</h2> PhpTemplateFactory
 
 Tomando como ejemplo la fábrica PHPTemplateFactory, el flujo de ejecución es el siguiente:
 
