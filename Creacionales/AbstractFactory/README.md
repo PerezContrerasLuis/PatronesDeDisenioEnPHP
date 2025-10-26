@@ -17,6 +17,10 @@ Una aplicación puede trabajar con varios motores de renderizado, pero para mant
 En lugar de crear directamente los objetos de plantilla, la aplicación delega esa tarea a una fábrica abstracta, que define cómo deben producirse los objetos sin especificar su tipo exacto.
 De esta forma, si en el futuro se necesita cambiar el motor de renderizado, solo se sustituye la fábrica concreta sin alterar el resto del código.
 
+### 🎯 Objetivo
+
+En este ejemplo, el objetivo es crear un sistema que permita generar plantillas dinámicamente usando distintos motores de renderizado —Twig y PHPTemplate— sin modificar el código principal. Cada motor produce sus propias versiones de los mismos productos: una plantilla de título, una plantilla de página y un renderizador. Para lograrlo, utilizamos una fábrica abstracta que define qué productos deben crearse, y fábricas concretas (Twig y PHP) que implementan esa lógica según el motor seleccionado.
+
 El resultado es un sistema más modular, extensible y fácil de mantener.
 
 
