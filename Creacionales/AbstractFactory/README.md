@@ -43,7 +43,7 @@ El renderizador se encarga de convertir una plantilla (con variables) en una cad
 
 ## 🟢 Proceso de codificación
 
-1. Identificar los productos a fabricar
+#### 1. Identificar los productos a fabricar
 
 Los productos que queremos que nuestras fábricas creen son:
 
@@ -65,7 +65,7 @@ Renderer/
 ```
 
 
-2. Crear las clases concretas de productos
+#### 2. Crear las clases concretas de productos
 
 Como tenemos dos motores de plantillas, necesitaremos implementaciones concretas para cada uno.
 Además, creamos una clase abstracta para evitar repetir código en las clases de página.
@@ -84,7 +84,7 @@ Para evitar duplicar lógica que comparten TwigPageTemplate y PHPTemplatePageTem
 
 
 
-3. Crear las clases de renderizado concretas
+#### 3. Crear las clases de renderizado concretas
 
 Cada motor tiene su propia clase que implementa TemplateRenderer y sabe cómo renderizar:
 ```bash
@@ -95,7 +95,7 @@ Renderer/
 ```
 
 
-4. Crear la fábrica abstracta
+#### 4. Crear la fábrica abstracta
 
 Creamos una interfaz que defina los métodos para fabricar cada tipo de producto:
 
@@ -111,7 +111,7 @@ Métodos:
 
 
 
-5. Crear las fábricas concretas
+#### 5. Crear las fábricas concretas
 
 Estas clases implementan TemplateFactory y se encargan de crear productos específicos para cada motor:
 
@@ -123,15 +123,14 @@ Factory/
 Cada una sabe cómo construir títulos, páginas y renderizadores según su motor.
 
 
-
-6. Crear la clase cliente (Page)
+#### 6. Crear la clase cliente (Page)
 
 La clase Page actúa como cliente y utiliza una fábrica para generar los componentes necesarios sin saber su implementación concreta.
 
 $page = new Page('Título', 'Contenido');
 
 
-7.- Crear el  Autoloading 
+#### 7. Crear el  Autoloading 
 
 Composer + autoloading PSR-4
 El autoloading PSR-4 permite que PHP cargue automáticamente las clases cuando se necesitan, sin tener que escribir manualmente múltiples require_once en el index.php como se muestra a continuacion.
@@ -180,7 +179,7 @@ Esto mejora significativamente la organización, mantenimiento y escalabilidad d
 	7.4.-Se remplasan todos los require_once por :  require_once __DIR__ . '/vendor/autoload.php';
 
 
-8. Probar la implementación
+#### 8. Probar la implementación
 
 En el archivo index.php, probamos la integración completa:
 
@@ -327,18 +326,15 @@ Resultado :
 
 Testing actual rendering with the PHPTemplate factory:
 <div class="page">
-    <h1> {{Title}} </h1>
-    <article class="content">{{content}}</article>
-</div>          
-
-
-Testing actual rendering with the PHPTemplate factory:
-<div class="page">
-    <h1> {{Title}} </h1>
-    <article class="content"><?= $content ?></article>
+    <h1> Sample page </h1>
+    <article class="content">This is the body.</article>
 </div>
+
+Testing actual rendering with the TwigTemplate factory:
+<div class="page">
+    <h1> Sample page </h1>
+    <article class="content">This is the body.</article>
 ```
 
 Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/php/example#example-1
 
-==================================================
