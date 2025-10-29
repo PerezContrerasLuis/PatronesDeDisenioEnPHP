@@ -108,5 +108,3 @@ Este proyecto está diseñado para uso personal, pero se aceptan sugerencias y m
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo los términos de la licencia [MIT](LICENSE).
-
----

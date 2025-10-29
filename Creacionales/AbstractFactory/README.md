@@ -335,6 +335,3 @@ Testing actual rendering with the TwigTemplate factory:
     <h1> Sample page </h1>
     <article class="content">This is the body.</article>
 ```
-
-Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/php/example#example-1
-
