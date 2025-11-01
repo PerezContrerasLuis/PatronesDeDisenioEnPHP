@@ -1,0 +1,11 @@
+{
+    "name": "luisdev/builder-pattern",
+    "description": "Ejemplo del patrón de diseño Builder en PHP (MySQL y PostgreSQL).",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Builder\\": "./"
+        }
+    },
+    "require": {}
+}
