@@ -64,7 +64,7 @@ El director utiliza el objeto constructor para el resto de la construcción.
 
 El resultado de la construcción tan solo se puede obtener directamente del director si todos los productos siguen la misma interfaz. 
 De lo contrario, el cliente deberá extraer el resultado del constructor.
-
+```
 
 ## 🟢 Proceso de codificación
 1. Identificar los productos a construir
@@ -129,8 +129,9 @@ En el archivo index.php, instanciamos los builders y ejecutamos la función clie
 1. Instanciación
 
 El cliente crea el builder concreto que desea usar:
-
+```php
 $builder = new MysqlQueryBuilder();
+```
 
 2. Llamada al método principal
 
@@ -152,9 +153,11 @@ El método getSQL() devuelve la cadena SQL final, adaptada al tipo de builder.
 ## 🔴 Resultado esperado
 
 ```bash
-Testing MySQL query builder:
-SELECT name, email, password FROM users WHERE age > '18' AND age < '30' LIMIT 10, 20;
+MacBookAir:~/Proyectos/Patrones/Creacionales/Builder$ php index.php
 
-Testing PostgresSQL query builder:
-SELECT name, email, password FROM users WHERE age > '18' AND age < '30' LIMIT 10 OFFSET 20;
+Testing MySQL query builder:
+SELECT name,email,password FROM users WHERE age > '18'  AND age < '18' ;
+
+Testing PostgreSQL query builder:
+SELECT name,email,password FROM users WHERE age > '18'  AND age < '18' ;
 ```
