@@ -26,7 +26,7 @@ Espero que este repositorio sirva como un punto de referencia **confiable y efic
     - 1.1. [Abstract Factory](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/AbstractFactory)
     - 1.2. [Factory Method](#)
     - 1.3. [Singleton](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/Singleton)
-    - 1.4. [Builder](#)
+    - 1.4. [Builder](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/Builder)
     - 1.5. [Prototype](#)
 
 2. **Patrones estructurales** 
