@@ -23,33 +23,35 @@ Espero que este repositorio sirva como un punto de referencia **confiable y efic
 ## 📚 Índice
 
 1. **Patrones creacionales** 
-    - 1.1. [Abstract Factory](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/AbstractFactory)
-    - 1.2. [Factory Method](#)
+    - 1.1. [Abstract Factory]
+        - 1.1.1 [Ejemplo PHP 1](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/AbstractFactory/Ejemplo-php-1/AbstractFactory)
+        - 1.1.2 [Ejemplo PHP 2](#)
+    - 1.2. [Factory Method]
     - 1.3. [Singleton](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/Singleton)
     - 1.4. [Builder](https://github.com/PerezContrerasLuis/PatronesDeDisenioEnPHP/tree/master/Creacionales/Builder)
-    - 1.5. [Prototype](#)
+    - 1.5. [Prototype]
 
 2. **Patrones estructurales** 
-    - 2.1. [Adapter](#)
-    - 2.2. [Decorator](#)
-    - 2.3. [Composite](#)
-    - 2.4. [Proxy](#)
-    - 2.5. [Facade](#)
-    - 2.6. [Bridge](#)
-    - 2.7. [Flyweight](#)
+    - 2.1. [Adapter]
+    - 2.2. [Decorator]
+    - 2.3. [Composite]
+    - 2.4. [Proxy]
+    - 2.5. [Facade]
+    - 2.6. [Bridge]
+    - 2.7. [Flyweight]
 
 3. **Patrones de comportamiento**
-    - 3.1. [Strategy](#)
-    - 3.2. [Observer](#)
-    - 3.3. [State](#)
-    - 3.4. [Command](#)
-    - 3.5. [Chain of Responsibility](#)
-    - 3.6. [Iterator](#)
-    - 3.7. [Mediator](#)
-    - 3.8. [Memento](#)
-    - 3.9. [Template Method](#)
-    - 3.10. [Visitor](#)
-    - 3.11. [Interpreter](#)
+    - 3.1. [Strategy]
+    - 3.2. [Observer]
+    - 3.3. [State]
+    - 3.4. [Command]
+    - 3.5. [Chain of Responsibility]
+    - 3.6. [Iterator]
+    - 3.7. [Mediator]
+    - 3.8. [Memento]
+    - 3.9. [Template Method]
+    - 3.10. [Visitor]
+    - 3.11. [Interpreter]
 
 ---
 
