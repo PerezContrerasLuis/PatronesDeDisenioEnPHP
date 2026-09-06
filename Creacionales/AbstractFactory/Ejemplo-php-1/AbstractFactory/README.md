@@ -1,4 +1,3 @@
-```markdown
 # 🏭 Abstract Factory Pattern
 
 ## 📑 Índice
