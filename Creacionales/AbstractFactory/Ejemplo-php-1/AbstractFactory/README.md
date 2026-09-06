@@ -128,10 +128,12 @@ Además, los métodos retornan interfaces, no clases concretas:
 
 Esto es importante porque permite que el código cliente trabaje con abstracciones y no dependa directamente de `TwigTitleTemplate`, `PhpTitleTemplate`, etc.
 
-A continuación, se muestra el diagrama UML correspondiente a la implementación del patrón Abstract Factory aplicado al problema planteado.
+A continuación, se muestra el diagrama de EJEMPLO > ⚠️ **Nota:** Para fines ilustrativos, las interfaces (`TitleTemplate`, `PageTemplate`, `TemplateRenderer`) aparecen duplicadas. En un diagrama de clases UML correcto, deben aparecer solo una vez cada una, como se muestra en el segundo diagrama.
 
 ![Diagrama Abstract Factory](Diagramas/uml.png)
 
+A continuación, se muestra el diagrama UML correspondiente a la implementación del patrón Abstract Factory aplicado al problema planteado.
+![Diagrama Abstract Factory](Diagramas/umlreal.png)
 ---
 
 ## 🟢 Proceso de codificación
